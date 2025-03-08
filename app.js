@@ -1,5 +1,7 @@
+let currentProgress = 0;
+let earnedPoints = 0;
+let missions = 0;
 document.addEventListener('DOMContentLoaded', function () {
-    // Section Navigation Logic
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav a');
 
@@ -26,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
             history.pushState(null, "", `#${targetId}`);
         });
     });
-
-    // Superhero Username Generator
     function generateUsername() {
         const adjectives = [
             "Mighty", "Invisible", "Galactic", "Thunder", "Shadow", "Solar",
@@ -51,8 +51,22 @@ document.addEventListener('DOMContentLoaded', function () {
     if (generateBtn) {
         generateBtn.addEventListener("click", generateUsername);
     }
+    const buttons = document.querySelectorAll('.quest-button');
 
-    // Chatbot Logic
+    buttons.forEach(button => {
+        button.addEventListener('click', function () {
+            const points = parseInt(this.getAttribute('data-points')); 
+            earnedPoints += points;
+            missions += 1;
+            const missionCount = document.getElementById('completed-missions');
+            missionCount.textContent = `${missions}`;
+            const pointsEarned = document.getElementById('points');
+            pointsEarned.textContent = `${earnedPoints}`;
+            currentProgress = .5 * earnedPoints;
+            updateProgressBar(currentProgress);
+        });
+    });
+
     const chatBtn = document.getElementById("chatbot-button");
     const chatBox = document.getElementById("chatbot");
     const closeChat = document.getElementById("close-chat");
@@ -116,7 +130,85 @@ document.addEventListener('DOMContentLoaded', function () {
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
+        
     }
+    func
+
+            function updateProgressBar(percentage) {
+                const validPercentage = Math.min(Math.max(percentage, 0), 100).toFixed(2);
+                const progressElement = document.querySelector('.progress');
+                const progressTextElement = document.getElementById('progress-text');
+                progressElement.style.width = `${validPercentage}%`;
+                if (validPercentage === 100) {
+                progressTextElement.textContent = "100% Great Job!";
+                } else {
+                progressTextElement.textContent = `${validPercentage}% Complete - Keep Going!`;
+                }
+            }
+        
+            // Example usage: Updating to 75% with a delay of 2 seconds
+            /*setTimeout(function() {
+                updateProgressBar(75);
+            }, 2000);  // Delay of 2000 milliseconds (2 seconds)*/
+
+    function filterProducts() {
+        const selectedCategory = document.getElementById('category').value;
+        const products = document.querySelectorAll('.product');
+
+        products.forEach(product => {
+            const productCategory = product.getAttribute('data-category');
+            if (selectedCategory === 'all' || productCategory === selectedCategory) {
+                product.style.display = 'block'; 
+            } else {
+                product.style.display = 'none'; 
+            }
+        });
+    }
+
+    window.filterProducts = filterProducts;
+
+    let cartItems = [];
+
+    function addToCart(productName, price, points) {
+        const cartItem = {
+            name: productName,
+            price: price,
+            points: points
+        };
+        cartItems.push(cartItem);
+        updateCartDisplay();
+    }
+
+    function updateCartDisplay() {
+        const cartElement = document.getElementById('cart');
+        cartElement.innerHTML = '';
+
+        if (cartItems.length === 0) {
+            cartElement.innerHTML = '<p>No items in cart.</p>';
+        } else {
+            const cartList = document.createElement('ul');
+
+            cartItems.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - $${item.price} | ${item.points} pts`;
+                cartList.appendChild(listItem);
+            });
+
+            cartElement.appendChild(cartList);
+
+            const checkoutButton = document.createElement('button');
+            checkoutButton.textContent = 'Checkout';
+            checkoutButton.addEventListener('click', function () {
+                alert('Thank you for your purchase!');
+                cartItems = []; // Clear the cart
+                updateCartDisplay(); // Update the display
+            });
+            cartElement.appendChild(checkoutButton);
+        }
+    }
+
+    window.addToCart = addToCart;
+    window.addToCart = addToCart;
 });
 
 function postMessage() {
@@ -131,86 +223,125 @@ function postMessage() {
     newPost.classList.add('post');
     newPost.textContent = postContent;
     postsContainer.appendChild(newPost);
-
-    // Clear the textarea after posting
     document.getElementById('post-content').value = "";
 }
 
-//drop down for the cart thingy//
-function filterProducts() {
-    // Get the selected category
-    const selectedCategory = document.getElementById('category').value;
+// Game Variables
+let player;
+let obstacle;
+let goal;
+let score = 0;
+let time = 0;
+let gameInterval;
+let isGameActive = false; 
 
-    // Get all product elements
-    const products = document.querySelectorAll('.product');
+function startGame() {
+    player = document.getElementById('player');
+    obstacle = document.getElementById('obstacle');
+    goal = document.getElementById('goal');
 
-    // Loop through each product and show/hide based on the selected category
-    products.forEach(product => {
-        const productCategory = product.getAttribute('data-category');
+    score = 0;
+    time = 0;
+    document.getElementById('score').textContent = score;
+    document.getElementById('time').textContent = time;
 
-        if (selectedCategory === 'all' || productCategory === selectedCategory) {
-            product.style.display = 'block'; // Show the product
-        } else {
-            product.style.display = 'none'; // Hide the product
-        }
-    });
+    player.style.left = '50px';
+    player.style.top = '50px';
+    obstacle.style.left = `${Math.random() * 350}px`;
+    obstacle.style.top = `${Math.random() * 350}px`;
+    goal.style.left = `${Math.random() * 350}px`;
+    goal.style.top = `${Math.random() * 350}px`;
+
+    clearInterval(gameInterval);
+    isGameActive = true; 
+    gameInterval = setInterval(updateGame, 1000);
+    document.addEventListener('keydown', movePlayer);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // Array to store cart items
-    let cartItems = [];
+// Pause the Game
+function pauseGame() {
+    clearInterval(gameInterval);
+    isGameActive = false;
+}
 
-    // Function to add a product to the cart
-    function addToCart(productName, price, points) {
-        // Create a cart item object
-        const cartItem = {
-            name: productName,
-            price: price,
-            points: points
-        };
+// Reset the Game
+function resetGame() {
+    if (isGameActive) {
+        clearInterval(gameInterval);
+        isGameActive = false; 
+        alert(`Game Over! Your final score is ${score}.`);
+    }
+}
+function updateGame() {
+    if (!isGameActive) return; 
+    time++;
+    document.getElementById('time').textContent = time;
+    if (checkCollision(player, obstacle)) {
+        resetGame();
+    }
+    if (checkCollision(player, goal)) {
+        score++;
+        document.getElementById('score').textContent = score;
+        goal.style.left = `${Math.random() * 350}px`;
+        goal.style.top = `${Math.random() * 350}px`;
+    }
+}
 
-        // Add the item to the cart
-        cartItems.push(cartItem);
+function movePlayer(event) {
+    if (!isGameActive) return; 
 
-        // Update the cart display
-        updateCartDisplay();
+    const key = event.key;
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(key)) {
+        event.preventDefault();
     }
 
-    // Function to update the cart display
-    function updateCartDisplay() {
-        const cartElement = document.getElementById('cart');
+    const playerRect = player.getBoundingClientRect();
+    const gameContainerRect = document.getElementById('game-container').getBoundingClientRect();
+    const playerTop = playerRect.top - gameContainerRect.top;
+    const playerLeft = playerRect.left - gameContainerRect.left;
+    const moveSpeed = 10;
 
-        // Clear the cart display
-        cartElement.innerHTML = '';
+    if (key === 'ArrowUp' && playerTop > 0) {
+        player.style.top = `${playerTop - moveSpeed}px`;
+    } else if (key === 'ArrowDown' && playerTop < gameContainerRect.height - playerRect.height) {
+        player.style.top = `${playerTop + moveSpeed}px`;
+    } else if (key === 'ArrowLeft' && playerLeft > 0) {
+        player.style.left = `${playerLeft - moveSpeed}px`;
+    } else if (key === 'ArrowRight' && playerLeft < gameContainerRect.width - playerRect.width) {
+        player.style.left = `${playerLeft + moveSpeed}px`;
+    }
+}
 
-        if (cartItems.length === 0) {
-            // If the cart is empty, show a message
-            cartElement.innerHTML = '<p>No items in cart.</p>';
-        } else {
-            // Create a list of cart items
-            const cartList = document.createElement('ul');
+function checkCollision(element1, element2) {
+    const rect1 = element1.getBoundingClientRect();
+    const rect2 = element2.getBoundingClientRect();
 
-            cartItems.forEach((item, index) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = `${item.name} - $${item.price} | ${item.points} pts`;
-                cartList.appendChild(listItem);
-            });
+    return !(
+        rect1.top > rect2.bottom ||
+        rect1.bottom < rect2.top ||
+        rect1.left > rect2.right ||
+        rect1.right < rect2.left
+    );
+}
 
-            // Add the list to the cart
-            cartElement.appendChild(cartList);
+document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+        pauseGame(); 
+    }
+});
 
-            // Add a "Checkout" button (optional)
-            const checkoutButton = document.createElement('button');
-            checkoutButton.textContent = 'Checkout';
-            checkoutButton.addEventListener('click', function () {
-                alert('Thank you for your purchase!');
-                cartItems = []; // Clear the cart
-                updateCartDisplay(); // Update the display
-            });
-            cartElement.appendChild(checkoutButton);
+// Pause the Game When the Mini-Game Section is Hidden
+const observer = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+        if (mutation.attributeName === 'style') {
+            const miniGameSection = document.getElementById('mini-game-section');
+            if (miniGameSection.style.display === 'none') {
+                pauseGame(); 
+            }
         }
-    }
+    });
+});
 
-    // Attach the function to the window object for global access
-    window.addToCart = addToCart;
+observer.observe(document.getElementById('mini-game-section'), {
+    attributes: true, 
 });

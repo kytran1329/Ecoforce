@@ -8,25 +8,19 @@
     <script defer src="app.js"></script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <img src="/images/logo.png" alt="EcoForce Logo">
-        <h1 class="motto">Unleash Your Inner Hero!</h1>
+    <header> 
+        <h1 class="title" style="margin:0 auto;color:white; text-align:center; width: fit-content;"> EcoForce</h1>
     </header>
-
-    <!-- Navigation Bar -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#missions">Missions</a></li>
             <li><a href="#store">Eco Store</a></li>
-            <li><a href="#signup">Join Us</a></li>
             <li><a href="#blogs">Blogs</a></li>
             <li><a href="#mini-games" id="mini-games-link">Mini Games</a></li>
+            <li><a href="#signup">Join Us</a></li>
         </ul>
     </nav>
-
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>🌍 The EcoForce Chronicles 🌿</h1>
@@ -37,10 +31,20 @@
                     But you won’t be alone on this journey. Meet your <strong>Super Buddies</strong>, loyal animal companions who will guide and empower you!
                 </p>
             </div>
-
-            <!-- Super Buddies Introduction -->
             <div class="super-buddies">
-                <h2>Meet Your Super Buddies</h2>
+                    <h1>🦸🏿Meet Your Super Buddies!🦹‍♂️</h1>
+                    <div class="text-box">
+                        <p>
+                            Luna was once a regular fox living in a dense forest. When her home was threatened by deforestation, she was chosen by the ancient spirit of the forest to become its guardian. She now fights to protect nature and inspire others to reduce waste.
+                        </p>
+                        <p>
+                            Shelly was born in the Great Coral Reef, but when plastic pollution began destroying her home, she was blessed by the Ocean Guardian with the power to protect marine life. She now travels the world, teaching others about the importance of reusing resources.
+                        </p>
+                        <p>
+                            Orion was once a nocturnal owl who witnessed the destruction of the night sky due to light pollution. The Star Guardian granted him the power to protect the skies and teach others about the importance of recycling and sustainability.
+                        </p>
+                    </div>
+
                 <div class="buddy">
                     <img src="images/DALL·E 2025-03-08 00.27.56 - A clever and resourceful fox with glowing green eyes, wearing a superhero cape, standing in a forest. The scene has an eco-friendly theme with lush gr.jpg" alt="Buddy Fox">
                     <h3>Luna the Fox</h3>
@@ -69,10 +73,8 @@
                     </div>
                 </div>
             </div>
-
-            <!-- The Call to Action -->
             <div class="call-to-action">
-                <h2>The Call to Action</h2>
+                <h1>The Call to Action</h1>
                 <div class="text-box">
                     <p>
                         The villains of pollution, deforestation, and waste are spreading chaos across the globe. 
@@ -80,12 +82,10 @@
                         The fate of the planet rests in your hands. Will you answer the call?
                     </p>
                 </div>
-                <button onclick="startMission()">🚀 Accept the Call!</button>
+                <!--<a href="#missions" class="button-link">🚀 Accept the Call!</a>-->
             </div>
-
-            <!-- The Journey Begins -->
             <div class="journey">
-                <h2>Your Heroic Journey</h2>
+                <h1>Your Heroic Journey</h1>
                 <div class="text-box">
                     <p>
                         Your journey will take you through forests, oceans, and cities as you battle the villains threatening our planet. 
@@ -120,17 +120,16 @@
                     </div>
                 </div>
             </div>
-
-    </div>
+    
+        </div>
 </div>
         </div>
 
     </section>
 
-
     <!-- About Section -->
     <section id="about">
-        <h2>🌱 Our Mission</h2>
+        <h1>🌱 Our Mission</h1>
         <div class="text-box">
             <p>At <strong>EcoForce</strong>, we empower individuals to fight against pollution, deforestation, and waste. Your small actions can create a huge positive impact.</p>
         </div>
@@ -153,7 +152,7 @@
 
     <!-- Missions Section -->
     <section id="missions">
-        <h2>🔆 Hero Quests</h2>
+        <h1>🔆 Hero Quests</h1>
         <div class="text-box">
             <p> 
                 The villains of pollution, deforestation, and waste are spreading chaos across the globe. 
@@ -161,76 +160,87 @@
                 Each mission brings you closer to becoming a true EcoForce hero. Take action & complete missions to unlock new abilities!
             </p>
         </div>
-        <div class="progress-tracker">
-            <h3>Your Progress</h3>
-            <div class="progress-bar">
-                <div class="progress" style="width: 60%;"></div>
-            </div>
-            <p>60% Complete - Keep Going!</p>
-        </div>
-        <ul class="quest-list">
-            <li>🗑 <strong>Pick Up Litter:</strong> Collect 5 pieces of trash today. (5 pts)</li>
-            <li>💡 <strong>Turn Off Lights:</strong> Make sure to turn off unused lights. (3 pts)</li>
-            <li>🚰 <strong>Save Water:</strong> Take a shorter shower today. (4 pts)</li>
-            <li>♻ <strong>Recycle:</strong> Sort your trash and recycle properly. (6 pts)</li>
-            <li>🛍 <strong>Use a Reusable Bag:</strong> Say no to plastic bags. (5 pts)</li>
-            <li>🍽 <strong>Reduce Food Waste:</strong> Finish your meal without wasting food. (4 pts)</li>
-            <li>🚶 <strong>Walk Instead:</strong> Avoid driving for a short trip. (5 pts)</li>
-            <li>📢 <strong>Spread Awareness:</strong> Share one eco-friendly tip with a friend. (3 pts)</li>
-        </ul>
-        <button onclick="viewMoreMissions()">View More Missions</button>
-
-        <h2>🐅 Clemson University Eco Quests</h2>
-        <div class="text-box">
-            <p>Complete these campus-specific challenges and earn points!</p>
-        </div>
-        <ul class="quest-list">
-            <li>🍊 <strong>Use a Refill Station:</strong> Fill up your reusable bottle at a campus water station. (5 pts)</li>
-            <li>🌱 <strong>Attend a Sustainability Event:</strong> Participate in a Clemson eco-friendly workshop. (10 pts)</li>
-            <li>🚴 <strong>Use Campus Bike Share:</strong> Ride a bike instead of driving on campus. (7 pts)</li>
-            <li>🗑 <strong>Recycle at Clemson:</strong> Use the correct recycling bins on campus. (6 pts)</li>
-            <li>🥗 <strong>Eat Plant-Based for a Day:</strong> Choose a vegetarian or vegan meal at a campus dining hall. (8 pts)</li>
-            <li>💡 <strong>Report Energy Waste:</strong> Notify facilities about unnecessary lights or waste. (9 pts)</li>
-            <li>🌍 <strong>Join a Cleanup Crew:</strong> Volunteer for a campus beautification event. (12 pts)</li>
-        </ul>
-
-        <h2>🛡 Hero Dashboard</h2>
+        <h1>🛡 Hero Dashboard</h1>
         <div class="text-box">
             <p>Track your progress and achievements.</p>
         </div>
         <div class="stats" style="display: flex; justify-content: center; gap: 20px;">
             <div class="box" style="text-align: center;">
-                <h3>🔥 Points Earned</h3>
-                <p id="points">2500</p>
+                <h3 style="color: white;">🔥 Points Earned</h3>
+                <p id="points">0</p>
             </div>
             <div class="box" style="text-align: center;">
-                <h3>🏅 Completed Missions</h3>
-                <p id="completed-missions">15</p>
+                <h3 style = "color: white;">🏅 Completed Missions</h3>
+                <p id="completed-missions">0</p>
             </div>
             <div class="box" style="text-align: center;">
-                <h3>🚀 Rank</h3>
+                <h3 style = "color: white;">🚀 Rank</h3>
                 <p id="rank">Eco Warrior</p>
             </div>
         </div>
-        <div class="badges">
-            <h3>Your Badges</h3>
-            <div class="badge-grid">
-                <div class="badge">
-                    <img src="images/bagde1.jpg" alt="Eco Hero Badge">
-                    <p>Eco Hero</p>
-                </div>
-                <div class="badge">
-                    <img src="images/vector-recycle-symbol-wax-symbolgreen-260nw-1817109266.jpg" alt="Recycling Champion">
-                    <p>Recycling Champion</p>
-                </div>
-                <!-- Add more badges -->
-            </div>
+<div class="badges">
+    <h3>Your Badges</h3>
+    <div class="badge-grid">
+        <div class="badge">
+            <img src="images/blank-gold-badge-label-2.png" alt="Eco Hero Badge">
+            <p style="color: black;" >Eco Hero</p>
         </div>
+        <div class="badge">
+            <img src="images/pngtree-luxury-gold-badge-png-image_7104757.png" alt="Recycling Champion">
+            <p style="color: black;">Recycling Champion</p>
+        </div>
+        <div class="badge">
+            <img src="images/replac.png" alt="Green Warrior">
+            <p style="color: black;">Green Warrior</p>
+        </div>
+        <div class="badge">
+            <img src="images/gold.png" alt="Ocean Defender">
+            <p style="color: black;">Ocean Defender</p>
+        </div>
+        <div class="badge">
+            <img src="images/yellow.png" alt="Forest Guardian">
+            <p style="color: black;"> Forest Guardian</p>
+        </div>
+       
+</div>
+        <div class="progress-tracker">
+            <h3 style = "color: white;">Your Progress</h3>
+            <div class="progress-bar">
+                <div class="progress" style="width: 0%;"></div>
+            </div>
+            <p id="progress-text">0% Complete - Keep Going!</p>
+        </div>
+        <ul class="quest-list">
+            <li><button class="quest-button" data-points="5">🗑 <strong>Pick Up Litter:</strong> Collect 5 pieces of trash today. (5 pts)</button></li>
+            <li><button class="quest-button" data-points="3">💡 <strong>Turn Off Lights:</strong> Make sure to turn off unused lights. (3 pts)</button></li>
+            <li><button class="quest-button" data-points="4">🚰 <strong>Save Water:</strong> Take a shorter shower today. (4 pts)</button></li>
+            <li><button class="quest-button" data-points="6">♻ <strong>Recycle:</strong> Sort your trash and recycle properly. (6 pts)</button></li>
+            <li><button class="quest-button" data-points="5">🛍 <strong>Use a Reusable Bag:</strong> Say no to plastic bags. (5 pts)</button></li>
+            <li><button class="quest-button" data-points="4">🍽 <strong>Reduce Food Waste:</strong> Finish your meal without wasting food. (4 pts)</button></li>
+            <li><button class="quest-button" data-points="5">🚶 <strong>Walk Instead:</strong> Avoid driving for a short trip. (5 pts)</button></li>
+            <li><button class="quest-button" data-points="3">📢 <strong>Spread Awareness:</strong> Share one eco-friendly tip with a friend. (3 pts)</button></li>
+        </ul>
+        <!--<button onclick="viewMoreMissions()">View More Missions</button>-->
+
+        <h1>🐅 Clemson University Eco Quests</h1>
+        <div class="text-box">
+            <p>Complete these campus-specific challenges and earn points!</p>
+        </div>
+        <ul class="quest-list">
+            <li><button class="quest-button" data-points="5">🍊 <strong>Use a Refill Station:</strong> Fill up your reusable bottle at a campus water station. (5 pts)</button></li>
+            <li><button class="quest-button" data-points="10">🌱 <strong>Attend a Sustainability Event:</strong> Participate in a Clemson eco-friendly workshop. (10 pts)</button></li>
+            <li><button class="quest-button" data-points="7">🚴 <strong>Use Campus Bike Share:</strong> Ride a bike instead of driving on campus. (7 pts)</button></li>
+            <li><button class="quest-button" data-points="6">🗑 <strong>Recycle at Clemson:</strong> Use the correct recycling bins on campus. (6 pts)</button></li>
+            <li><button class="quest-button" data-points="8">🥗 <strong>Eat Plant-Based for a Day:</strong> Choose a vegetarian or vegan meal at a campus dining hall. (8 pts)</button></li>
+            <li><button class="quest-button" data-points="9">💡 <strong>Report Energy Waste:</strong> Notify facilities about unnecessary lights or waste. (9 pts)</button></li>
+            <li><button class="quest-button" data-points="12">🌍 <strong>Join a Cleanup Crew:</strong> Volunteer for a campus beautification event. (12 pts)</button></li>
+        </ul>
+
     </section>
     
     <!-- Join Us Section -->
     <section id="signup">
-        <h2>Hero Registration</h2>
+        <h1>🦸🏻 Hero Registration</h1>
         <div class="text-box">
             <p>Enter the Heroic Academy to Start Your Journey!</p>
         </div>
@@ -271,15 +281,13 @@
 
     <!-- Blogs Section -->
     <section id="blogs">
-        <h2>🌿 EcoForce Blog</h2>
+        <h1>🌿 EcoForce Blog</h1>
         <div class="text-box">
             <p>Explore eco-friendly tips, stories, and heroic updates from fellow defenders!</p>
         </div>
-    
-        <!-- Blog Posts Grid -->
         <div class="blog-grid">
             <article class="blog-post">
-                <img src="images/blog1.jpg" alt="5 Easy Ways to Cut Plastic Use">
+                <img src="images/bagde1.jpg" alt="5 Easy Ways to Cut Plastic Use">
                 <div class="blog-content">
                     <h3>5 Easy Ways to Cut Plastic Use</h3>
                     <div class="text-box">
@@ -290,7 +298,7 @@
             </article>
     
             <article class="blog-post">
-                <img src="images/blog2.jpg" alt="Volunteering for Earth Day">
+                <img src="images/earth-day.jpg" alt="Volunteering for Earth Day">
                 <div class="blog-content">
                     <h3>Volunteering for Earth Day</h3>
                     <div class="text-box">
@@ -301,13 +309,68 @@
             </article>
     
             <article class="blog-post">
-                <img src="images/blog3.jpg" alt="Saving Water - Tips for a Sustainable Future">
+                <img src="images/water.jpg" alt="Saving Water - Tips for a Sustainable Future">
                 <div class="blog-content">
                     <h3>Saving Water - Tips for a Sustainable Future</h3>
                     <div class="text-box">
                         <p>Discover practical tips to conserve water and protect this precious resource.</p>
                     </div>
                     <a href="blogs/saving-water.html" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <img src="images/saving-energy.jpg" alt="Conserving Energy">
+                <div class="blog-content">
+                    <h3>Conserving Energy</h3>
+                    <div class="text-box">
+                        <p>Understanding the importance of conserving energy.</p>
+                    </div>
+                    <a href="blogs/conserving-enrgy.html" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <img src="images/deforestation.jpg" alt="Fighting Deforestation">
+                <div class="blog-content">
+                    <h3>Fighting Deforestaion</h3>
+                    <div class="text-box">
+                        <p>Learn how you can help fight deforestation locally and globally.</p>
+                    </div>
+                    <a href="blogs/fighting-deforestation.html" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <img src="images/renewable-energy.jpg" alt="Renewable Energy">
+                <div class="blog-content">
+                    <h3>Renewable Energy</h3>
+                    <div class="text-box">
+                        <p>Learn about the benefits of renewable energy sources.</p>
+                    </div>
+                    <a href="blogs/renewable-energy.html" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <img src="images/stainless-steel-waterbottle.jpg" alt="Conserving Water">
+                <div class="blog-content">
+                    <h3>Conserving Water</h3>
+                    <div class="text-box">
+                        <p>Conserving water and reducing harm to nearby ecosystems.</p>
+                    </div>
+                    <a href="blogs/saving-water.html" class="read-more">Read More →</a>
+                </div>
+            </article>
+
+            <article class="blog-post">
+                <img src="images/shopping-sustainably-1000x600.jpg" alt="Sustainable Shopping">
+                <div class="blog-content">
+                    <h3>Sustainable Shopping</h3>
+                    <div class="text-box">
+                        <p>Learn how to shop for your needs and the planet's.</p>
+                    </div>
+                    <a href="blogs/sustainable-shopping.html" class="read-more">Read More →</a>
                 </div>
             </article>
     
@@ -318,10 +381,9 @@
             <p>Get the latest eco-friendly tips and updates straight to your inbox.</p>
             <form id="newsletter-form">
                 <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
+                <button style="color: white;" type="submit">Subscribe</button>
             </form>
         </div>
-        <!-- Discussion Board -->
         <div id="discussion-board">
             <h3>Discussion Board</h3>
             <textarea id="post-content" placeholder="Share your eco-friendly tips..."></textarea>
@@ -329,10 +391,8 @@
             <div id="posts"></div>
         </div>
     </section>
-
-    <!-- Eco Store Section -->
     <section id="store">
-        <h2>🛒 Eco Store - Shop Sustainably!</h2>
+        <h1 style="color: black;">🛒 Eco Store - Shop Sustainably!</h1>
         <div class="text-box">
             <p>Support sustainability by choosing eco-friendly products. Earn and redeem points from missions!</p>
         </div>
@@ -342,10 +402,9 @@
                 Use the points you earn from missions to unlock powerful items that will aid you in your quest.
             </p>
         </div>
-        
         <!-- Filters -->
         <div class="store-filters">
-            <label for="category">Filter by Category:</label>
+            <label for="category" style="color: white;">Filter by Category:</label>
             <select id="category" onchange="filterProducts()">
                 <option value="all">All</option>
                 <option value="reusables">Reusable Essentials</option>
@@ -356,11 +415,9 @@
             </select>
         </div>
 
-        <!-- Product Grid -->
         <div class="product-grid">
-            <!-- Reusable Essentials -->
             <div class="product" data-category="reusables">
-                <img src="images/water-bottle.jpg" alt="Reusable Water Bottle">
+                <img src="images/stainless-steel-waterbottle.jpg" alt="Reusable Water Bottle">
                 <h3>Stainless Steel Water Bottle</h3>
                 <div class="text-box">
                     <p>Keep your drinks hot or cold for hours with this eco-friendly bottle.</p>
@@ -377,8 +434,15 @@
                 <p><strong>Price: $15 | 150 pts</strong></p>
                 <button onclick="addToCart('Organic Cotton Tote Bag', 15, 150)">Buy Now</button>
             </div>
-
-            <!-- Sustainable Clothing -->
+            <div class="product" data-category="reusables">
+                <img src="images/81pZ71cKNnL.jpg" alt="Reusable Metal Straws">
+                <h3>Reusable Metal Straws</h3>
+                <div class="text-box">
+                    <p>Say no to plastic and save the turtles with these reusable straws.</p>
+                </div>
+                <p><strong>Price: $8 | 80 pts</strong></p>
+                <button onclick="addToCart('Reusable Metal Straws', 8, 80)">Buy Now</button>
+            </div>
             <div class="product" data-category="clothing">
                 <img src="images/shirt.jpg" alt="Bamboo Fiber T-Shirt">
                 <h3>Bamboo Fiber T-Shirt</h3>
@@ -389,7 +453,15 @@
                 <button onclick="addToCart('Bamboo Fiber T-Shirt', 30, 300)">Buy Now</button>
             </div>
 
-            <!-- Eco-Friendly Tech -->
+            <div class="product" data-category="clothing">
+                <img src="images/belts-193229_1280.jpg" alt="Recycled Leather Belt">
+                <h3>Recycled Leather Belt</h3>
+                <div class="text-box">
+                    <p>Recycled leather not only saves discarded leather waste from going into landfills, but it also decreases the amount of new leather being made.</p>
+                </div>
+                <p><strong>Price: $25 | 250 pts</strong></p>
+                <button onclick="addToCart('Recycled Leather Belt', 25, 250)">Buy Now</button>
+            </div>
             <div class="product" data-category="tech">
                 <img src="images/solar charger (1).jpg" alt="Solar Phone Charger">
                 <h3>Solar Phone Charger</h3>
@@ -399,8 +471,15 @@
                 <p><strong>Price: $40 | 400 pts</strong></p>
                 <button onclick="addToCart('Solar Phone Charger', 40, 400)">Buy Now</button>
             </div>
-
-            <!-- Green Home -->
+            <div class="product" data-category="tech">
+                <img src="images/papershoot1-889x615.jpg" alt="Paper Camera">
+                <h3>Paper Camera</h3>
+                <div class="text-box">
+                    <p>Reduce e-waste with this paper camera.</p>
+                </div>
+                <p><strong>Price: $30 | 300 pts</strong></p>
+                <button onclick="addToCart('Paper Camera', 30, 300)">Buy Now</button>
+            </div>
             <div class="product" data-category="home">
                 <img src="images/compost.jpg" alt="Kitchen Compost Bin">
                 <h3>Kitchen Compost Bin</h3>
@@ -410,8 +489,15 @@
                 <p><strong>Price: $35 | 350 pts</strong></p>
                 <button onclick="addToCart('Kitchen Compost Bin', 35, 350)">Buy Now</button>
             </div>
-
-            <!-- Educational Resources -->
+            <div class="product" data-category="home">
+                <img src="images/LEDlightbulbs.jpg" alt="LEDlightbulbs">
+                <h3>LED Light Bulbs</h3>
+                <div class="text-box">
+                    <p>100 percent recyclable, and will help to reduce your carbon footprint by up to a third.</p>
+                </div>
+                <p><strong>Price: $10 | 100 pts</strong></p>
+                <button onclick="addToCart('LED Light Bulbs', 10, 100)">Buy Now</button>
+            </div>
             <div class="product" data-category="books">
                 <img src="images/SustainableLiving-683x1024.jpg" alt="Sustainability Guide Book">
                 <h3>The Ultimate Sustainability Guide</h3>
@@ -421,21 +507,75 @@
                 <p><strong>Price: $20 | 200 pts</strong></p>
                 <button onclick="addToCart('The Ultimate Sustainability Guide', 20, 200)">Buy Now</button>
             </div>
+            <div class="product" data-category="books">
+                <img src="images/RecycledPencils.jpg" alt="Recycled Pencils">
+                <h3>Recycled Pencils</h3>
+                <div class="text-box">
+                    <p>Save the trees by using these pencils made from recycled newspapers.</p>
+                </div>
+                <p><strong>Price: $10 | 100 pts</strong></p>
+                <button onclick="addToCart('Recycled Pencils', 10, 100)">Buy Now</button>
+            </div>
         </div>
-
-        <!-- Shopping Cart -->
-        <h2>🛍 Your Cart</h2>
+        <h1 style="color: black;">🛍️ Your Cart</h1>
         <div id="cart">
-            <p>No items in cart.</p>
+            <div class="text-box">
+                <p>Your cart is empty. Start shopping now!</p>
+            </div>
+            <ul id="cart-items"></ul>
+            <div id="cart-total">
+                <!--<p><strong>Total: $<span id="total-price">0</span> | <span id="total-points">0</span> pts</strong></p>-->
+            </div>
+            <button id="checkout-button" onclick="checkout()">Checkout</button>
         </div>
-    </section>
+    </section>   
+<section id="mini-games">
+    <h1>🎮 Mini Games</h1>
+    <div class="text-box">
+        <p>Take a break and enjoy some fun eco-themed mini-games! Earn points and have fun while learning about sustainability.</p>
+    </div>
+    <div id="mini-game-section">
+        <h3>Training Mission: Navigate the Eco Maze</h3>
+        <div class="text-box">
+            <p>
+                In a world where litter and pollution threaten the lives of innocent animals, the EcoForce has called upon you to take action. Your mission: Save the Animals by Cleaning Up the Trash!
 
+The maze is filled with dangerous trash (🟢💩) that animals might mistake for food. Your goal is to collect the trash and safely dispose of it in the recycling bin (🗑🟡) before it harms any creatures. Along the way, you’ll earn points and prove your dedication to protecting the planet.
 
-    <!-- Chatbot Widget -->
+Remember, every piece of trash you collect saves an animal’s life and brings us one step closer to a cleaner, healthier Earth. Avoid the red circles! Are you ready to step up and become a hero for the planet? Let’s get started!
+            </p>
+        </div>
+        <div id="game-container">
+            <div id="player"></div>
+            <div id="obstacle"></div>
+            <div id="goal"></div>
+        </div>
+        <div id="game-status">
+            <p style="color: black">Score: <span id="score">0</span></p>
+            <p style="color: black">Time: <span id="time">0</span>s</p>
+        </div>
+        <div class="game-controls">
+            <button onclick="startGame()">🎮 Start Game</button>
+            <button onclick="resetGame()">🔄 Restart Game</button>
+        </div>
+    </div>
+
+    <!-- Game Instructions -->
+    <div class="game-instructions">
+        <h3>How to Play</h3>
+        <div class="text-box">
+            <p>
+                Use the <strong>arrow keys</strong> to move the player (🌱) around the game area. Avoid the obstacles (🗑) and reach the goal (🏆) to score points. 
+                Each time you reach the goal, your score increases, and the obstacles move to new random positions. 
+                Be quick and careful—your time is being tracked!
+            </p>
+        </div>
+    </div>
+</section>
     <div id="chatbot-container">
         <div id="chatbot">
             <div id="chat-header">
-                <span>💬 EcoBot - Your Mission Guide</span>
+                <span style="color:white">💬 EcoBot - Your Mission Guide</span>
                 <button id="close-chat">✖</button>
             </div>
             <div id="chat-body">
@@ -446,16 +586,11 @@
                 <button id="send-btn">Send</button>
             </div>
         </div>
-        <button id="chatbot-button">💬 Chat</button>
+        <button id="chatbot-button" style="color:white">💬 Chat</button>
     </div>
-
- 
-    
-    <!-- Footer -->
     <footer>
-        <p>EcoForce © 2025 | Save the planet, one action at a time! 🌎</p>
+        <p style="color:white">EcoForce © 2025 | Save the planet, one action at a time! 🌎</p>
     </footer>
 </body>
-
 
 </html>
